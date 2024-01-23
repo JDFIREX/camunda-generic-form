@@ -14,9 +14,14 @@ export const policy = {
             "link": "/"
         },
         {
-            "title": "Zmiana własności pojazdu",
+            "title": "Zmiana własności pojazdu Stara",
             "icon" : <FileTextIcon  width={48} height={48} />,
-            "link": "/form/zmiana-wlasnosci-pojazdu"
+            "link": "/form/zmiana-wlasnosci-pojazdu-stara"
+        },
+        {
+            "title": "Zmiana własności pojazdu Nowa",
+            "icon" : <FileTextIcon  width={48} height={48} />,
+            "link": "/form/zmiana-wlasnosci-pojazdu-nowa"
         },
         {
             "title": "Płatności",
