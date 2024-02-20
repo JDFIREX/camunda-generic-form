@@ -1,6 +1,6 @@
 import {FileTextIcon} from "@radix-ui/react-icons";
 
-export const policy = {
+export const policyPages = {
     title: "Twoja polisa",
     cards: [
         {
@@ -14,14 +14,9 @@ export const policy = {
             "link": "/"
         },
         {
-            "title": "Zmiana własności pojazdu Stara",
+            "title": "Zmiana własności pojazdu",
             "icon" : <FileTextIcon  width={48} height={48} />,
-            "link": "/form/zmiana-wlasnosci-pojazdu-stara"
-        },
-        {
-            "title": "Zmiana własności pojazdu Nowa",
-            "icon" : <FileTextIcon  width={48} height={48} />,
-            "link": "/form/zmiana-wlasnosci-pojazdu-nowa"
+            "link": "/form/zmiana-wlasnosci-pojazdu"
         },
         {
             "title": "Płatności",

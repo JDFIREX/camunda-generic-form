@@ -1,9 +1,9 @@
-import {reasonCamundaForm} from "@/src/modules/zmiana-wlasnosci-pojazdu-new/basic/mocks/reasonCamundaForm";
+import {coownerDataFormWithGroups} from "@/src/modules/zmiana-wlasnosci-pojazdu/basic/mocks/camundaForm";
 import {Card, CardContent} from "@/src/components/ui/card";
 import CamundaForm from "@/src/camunda/camundaForm";
 
 async function getData() {
-    return reasonCamundaForm
+    return coownerDataFormWithGroups
 }
 
 const Page = async () => {
@@ -11,8 +11,6 @@ const Page = async () => {
 
     return (
         <div className="flex flex-col items-center">
-            <h1 className="mb-10">Zmiana własności</h1>
-
             <Card>
                 <CardContent>
                     <CamundaForm data={data} />

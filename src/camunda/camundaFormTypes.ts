@@ -7,12 +7,14 @@ export interface CamundaFormData {
     };
     schemaVersion: number;
     id: string;
-    components: Array<CamundaFormSingleComponentData>
-        | Array<CamundaFormPresentationComponent>
-        | Array<CamundaFormComponent>
-        | Array<CamundaFormBaseComponent>;
+    components: CamundaFormDataComponents;
     type: string;
 }
+
+export type CamundaFormDataComponents = Array<CamundaFormSingleComponentData>
+    | Array<CamundaFormPresentationComponent>
+    | Array<CamundaFormComponent>
+    | Array<CamundaFormBaseComponent>;
 
 export type CamundaFormSingleComponentData =
     | CamundaFormSelectComponent
@@ -20,17 +22,23 @@ export type CamundaFormSingleComponentData =
     | CamundaFormTextFieldComponent
     | CamundaFormChecklistComponent
     | CamundaFormRadioComponent
-    | CamundaFormTextComponent;
+    | CamundaFormTextComponent
+    | CamundaFormCheckboxComponent
+    | CamundaFormGroupComponent;
 
 export const ComponentsType = [
     "textfield",
     "number",
     "select",
     "checklist",
-    "radio"
+    "radio",
+    "group",
+    "checkbox",
 ]
 
 export type CamundaFormComponentsType = (typeof ComponentsType)[number]
+
+export const GROUP_COMPONENT_TYPE = "group"
 
 export const PresentationComponentsType = [
     "text",
@@ -40,6 +48,8 @@ export type CamundaFormPresentationComponentsType = (typeof PresentationComponen
 
 export type CamundaFormValidationType = "email" | "phone"
 
+export type CamundaGroupVerticalAlignment = "start" | "center" | "end"
+
 export interface CamundaFormValue {
     label: string;
     value: string;
@@ -47,7 +57,7 @@ export interface CamundaFormValue {
 
 export interface CamundaFromLayout {
     row: string;
-    columns: null;
+    columns: number | null;
 }
 
 export interface CamundaFormConditional {
@@ -159,5 +169,28 @@ export interface CamundaFormTextComponent extends CamundaFormPresentationCompone
     label?: string;
     layout?: CamundaFromLayout;
     conditional?: CamundaFormConditional;
+    properties?: CamundaFormProperties;
+}
+
+export interface CamundaFormGroupComponent extends CamundaFormBaseComponent {
+    components: CamundaFormDataComponents;
+    label?: string;
+    showOutline?: boolean;
+    layout?: CamundaFromLayout;
+    conditional?: CamundaFormConditional;
+    properties?: CamundaFormProperties;
+    verticalAlignment?: CamundaGroupVerticalAlignment;
+    path?: string;
+}
+
+export interface CamundaFormCheckboxComponent extends CamundaFormComponent {
+    label?: string;
+    layout?: CamundaFromLayout;
+    readonly?: boolean;
+    defaultValue?: boolean;
+    disabled?: boolean;
+    description?: string;
+    conditional?: CamundaFormConditional;
+    validate?: CamundaFormValidation;
     properties?: CamundaFormProperties;
 }

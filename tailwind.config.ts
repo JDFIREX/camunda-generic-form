@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import plugin from "tailwindcss/plugin";
+import {generateGrid} from "./src/basic/utils/tailwind";
 
 const config: Config = {
   content: [
@@ -31,6 +31,7 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      ...generateGrid(16),
     },
   },
   plugins: [],
