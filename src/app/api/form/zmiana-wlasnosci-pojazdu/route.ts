@@ -1,4 +1,4 @@
-export const camundaApi = "https://dsm-1.connectors.camunda.io/5a1d16df-e309-4c18-8a81-9563d1c42b13/inbound/startProcess"
+export const camundaApi = "camunda_api"
 
 export const removeUndefined = (obj: Record<string, unknown>): Record<string, string> => {
     return Object.fromEntries(

@@ -16,10 +16,11 @@ const PolicyForm = () => {
         defaultValues: PolicyFormDefaultValues
     })
 
-    const handleSubmit = (data: PolicySchema) => {
+    const handleSubmit = async (data: PolicySchema) => {
         const formData = new FormData()
         formData.append('policy', data.policy)
-        submitPolicyForm(formData)
+        formData.append("taskName", "zmiana-wlasnosci-pojazdu")
+        await submitPolicyForm(formData)
     }
 
     return (
